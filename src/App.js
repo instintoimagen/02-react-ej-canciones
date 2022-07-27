@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import SongSearch from "./components/SongSearch";
+import Footer from "./components/Footer";
 
 function App() {
+  const [position, setPosition] = useState("fixed");
+
+  const footerPosition = () => setPosition("static");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <>
+      <div className="container">
+        <a href="index.html">
+          <h1>Buscador Letras e Intérpretes</h1>
         </a>
-      </header>
-    </div>
+        <SongSearch footerPosition={footerPosition} />
+        <Footer position={position} />
+      </div>
+    </>
   );
 }
 
